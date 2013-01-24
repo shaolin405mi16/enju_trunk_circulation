@@ -9,13 +9,16 @@
     </object>
 <script>
 $(function(){
-  $('#button_print_pdf').click(function(){
-    objPdf.printAll();
-    $('#notice').html('<strong><%= t('checkout.printout_in_progress') -%></strong>');
-  });
+  objPdf.printAll();
+  //$('#button_print_pdf').click(function(){
+  //  objPdf.printAll();
+  //  $('#notice').html('<strong><%= t('checkout.printout_in_progress') -%></strong>');
+  //});
 });
 </script>
+<!--
     <button id="button_print_pdf"><%= t('activerecord.attributes.checkout.output_checkoutlist') -%></button>
+-->
   <%- else -%> <!-- #### -->
   <%= form_for(:checkouts, :url => user_checkouts_path(user, :format => 'pdf'), :html => {:method => 'get', :id => 'form'}) do |f|-%>
     <%= hidden_field_tag :basket_id, basket_id if basket_id %>
